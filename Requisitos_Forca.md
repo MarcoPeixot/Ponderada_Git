@@ -1,83 +1,137 @@
-# Requisitos do Jogo de Forca Online
+# Especificação de Requisitos do Jogo da Forca Online
+=====================================================
 
 ## 1. Descrição do Projeto
 O objetivo deste projeto é desenvolver um jogo de forca online. O cliente solicitou um jogo interativo, mas não especificou todos os detalhes. Portanto, a equipe de desenvolvimento é responsável por definir as funcionalidades e a forma como o jogo funcionará, garantindo uma experiência envolvente e intuitiva para os usuários.
 
----
+
 
 ## 2. Requisitos Funcionais
-Os requisitos funcionais especificam **o que o sistema deve fazer**, detalhando as funcionalidades e comportamentos esperados.
+------------------------
 
-### RF 
+### RF01 - Sistema de Autenticação
+- O sistema deve permitir registro de novos usuários
+- O sistema deve implementar login com senha segura
+- O sistema deve suportar autenticação social (Google/Facebook)
+- O sistema deve manter sessão ativa por 8 horas
+
+### RF02 - Interface Principal
 - O sistema deve apresentar uma tela inicial com as seguintes opções:
-  - Iniciar Jogo
-  - Instruções
-  - Sair do jogo
+  * Iniciar Jogo
+  * Ver Ranking Global
+  * Minhas Estatísticas
+  * Loja de Itens
+  * Sair do jogo
 
-### RF 
-- O sistema deve permitir o modo de jogo **Multiplayer:** Partidas entre dois jogadores.
+### RF03 - Sistema de Partidas
+- O sistema deve permitir criar salas privadas com senhas
+- O sistema deve manter uma lista de partidas em andamento
+- O sistema deve permitir espectadores assistirem às partidas
+- O sistema deve suportar até 50 espectadores por partida
 
-### RF
-- O sistema deve iniciar uma nova partida ao selecionar a opção "Iniciar Jogo" na tela inicial.
+### RF04 - Modo Multiplayer
+- O sistema deve permitir partidas entre dois jogadores
+- O sistema deve iniciar uma nova partida ao selecionar "Iniciar Jogo"
+- O sistema deve permitir que o jogador escolha entre:
+  * Hospedar uma nova partida
+  * Entrar em uma partida existente
+- O sistema deve exibir claramente se é jogador 1 (anfitrião) ou jogador 2 (convidado)
 
-### RF
-- O sistema deve permitir que o jogador escolha se quer hospedar uma partida ou jogar em uma partida existente.
+### RF05 - Mecânica de Jogo
+- No modo multiplayer, um jogador deve poder inserir a palavra secreta
+- O outro jogador deve tentar adivinhar a palavra letra por letra
+- O sistema deve validar entrada apenas para letras do alfabeto
+- O sistema deve exibir:
+  * Letras corretas na posição correta
+  * Lista de letras erradas tentadas
+  * Quantidade de tentativas restantes
 
-### RF 
-- O sistema deve exibir se o usuário é o jogador 1, o que hospedou a partida, ou o jogador 2, o que vai jogar a partida.
+### RF06 - Sistema de Chat
+- O sistema deve permitir comunicação em tempo real entre jogadores
+- O sistema deve suportar emojis e formatação básica de texto
+- O sistema deve manter histórico de mensagens durante a partida
+- O sistema deve permitir silenciar outros jogadores
 
-### RF
-- No modo multiplayer, um jogador deve poder inserir a palavra secreta enquanto o outro tenta adivinhar.
-
-### RF
-- O sistema deve permitir que o jogador 1 dono da sala dê dicas para o outro jogador.
-- O sistema deve permitir que o jogador 2 visualize as dicas do jogador 1.
-
-### RF 
-- O sistema deve permitir que o jogador insira letras para tentar adivinhar a palavra.
-- O sistema deve validar a entrada para aceitar apenas letras do alfabeto.
-
-### RF 
-- O sistema deve exibir as letras corretas na posição correta na palavra secreta.
-- O sistema deve listar as letras erradas tentadas pelo jogador.
-
-### RF
-- O sistema deve exibir uma mensagem de vitória caso o jogador adivinhe a palavra antes de esgotar as tentativas.
-- O sistema deve exibir uma mensagem de derrota caso o jogador esgote todas as tentativas.
-- O sistema deve oferecer a opção de reiniciar o jogo ou retornar à tela inicial.
-
-### RF 
-- O sistema deve permitir partidas multiplayer em tempo real.
-- O sistema deve gerenciar a vez de cada jogador e garantir que apenas um jogue por vez.
-- O sistema deve permitir chat entre os jogadores durante a partida.
-
----
+### RF07 - Sistema de Recompensas
+- O sistema deve oferecer recompensas diárias por login consecutivo
+- O sistema deve conceder troféus por conquistas especiais
+- O sistema deve permitir compra de itens cosméticos
+- O sistema deve manter inventário de itens adquiridos
 
 ## 3. Requisitos Não Funcionais
-Os requisitos não funcionais definem **como o sistema deve se comportar**, especificando restrições e qualidades do sistema, de acordo com a [ISO25010](https://blog.onedaytesting.com.br/iso-iec-25010/).
+---------------------------
 
 ### RNF01 - Desempenho
-- O sistema deve carregar a tela inicial em menos de **2 segundos**.
-- O sistema deve iniciar a partida em no máximo **1 segundo**.
+- O sistema deve carregar a tela inicial em menos de 2 segundos
+- O sistema deve iniciar uma nova partida em até 1 segundo
+- O sistema deve processar mensagens do chat em menos de 100ms
+- O sistema deve manter latência inferior a 200ms nas partidas
 
 ### RNF02 - Usabilidade
-- O sistema deve ter uma interface intuitiva e fácil de usar, com botões visíveis e bem descritos.
-- O sistema deve fornecer feedback claro ao usuário em cada ação (como letras corretas e erradas).
+- O sistema deve ter interface intuitiva e fácil de usar
+- O sistema deve fornecer feedback claro para todas as ações
+- O sistema deve suportar navegação por teclado
+- O sistema deve oferecer tema claro e escuro
 
 ### RNF03 - Confiabilidade
-- O sistema deve manter o estado da partida mesmo em caso de falha de conexão para o modo multiplayer.
-- O sistema deve garantir a integridade dos dados das partidas em andamento.
+- O sistema deve manter estado da partida mesmo com falhas de conexão
+- O sistema deve garantir integridade dos dados das partidas
+- O sistema deve implementar reconexão automática
+- O sistema deve manter histórico de partidas por 30 dias
 
 ### RNF04 - Segurança
-- No modo multiplayer, as comunicações devem ser criptografadas para proteger a privacidade dos jogadores.
+- Todas as comunicações devem ser criptografadas (HTTPS/TLS)
+- Senhas devem ser armazenadas com hash seguro
+- Sistema deve implementar rate limiting
+- Sistema deve validar todos os inputs do usuário
 
 ### RNF05 - Compatibilidade
-- O sistema deve ser compatível com os navegadores mais utilizados: Google Chrome, Mozilla Firefox, Safari e Microsoft Edge.
-- O sistema deve ser responsivo e funcionar em dispositivos móveis, tablets e desktops.
+- Sistema deve ser compatível com navegadores Chrome, Firefox e Safari
+- Sistema deve funcionar em dispositivos móveis, tablets e desktops
+- Sistema deve se adaptar automaticamente ao tamanho da tela
+- Sistema deve suportar resoluções mínimas de 320px
 
 ### RNF06 - Escalabilidade
-- O sistema deve suportar até 2 jogadores simultâneos na mesma partida e 50 espectadores no modo multiplayer.
+- Sistema deve suportar até 2 jogadores simultâneos por partida
+- Sistema deve permitir até 50 espectadores por partida
+- Sistema deve suportar até 1000 usuários online simultaneamente
+- Sistema deve manter performance com 90% de carga
 
+## 4. Matriz de Correlação
+---------------------------
 
----
+| Requisito Funcional | Requisitos Não Funcionais Relacionados |
+|--------------------|----------------------------------------|
+| RF01               | RNF04 (Segurança)                      |
+| RF02               | RNF02 (Usabilidade)                    |
+| RF03               | RNF03 (Confiabilidade), RNF06 (Escalabilidade) |
+| RF04               | RNF01 (Desempenho), RNF03 (Confiabilidade)    |
+| RF05               | RNF01 (Desempenho), RNF02 (Usabilidade)      |
+| RF06               | RNF01 (Desempenho), RNF02 (Usabilidade)      |
+| RF07               | RNF03 (Confiabilidade), RNF04 (Segurança)     |
+
+## 5. Casos de Uso
+--------------
+
+### UC01 - Criar Partida
+1. Jogador seleciona opção "Hospedar Partida"
+2. Sistema solicita palavra secreta
+3. Jogador insere palavra válida
+4. Sistema cria sala com código único
+5. Sistema aguarda conexão do segundo jogador
+
+### UC02 - Entrar em Partida
+1. Jogador seleciona opção "Entrar em Partida Existente"
+2. Sistema exibe lista de salas disponíveis
+3. Jogador seleciona sala desejada
+4. Sistema verifica se sala está disponível
+5. Sistema conecta jogador à partida
+
+### UC03 - Realizar Jogada
+1. Jogador digita letra para tentativa
+2. Sistema valida entrada
+3. Sistema processa jogada
+4. Sistema atualiza estado da partida
+5. Sistema notifica resultado ao jogador
+
 
