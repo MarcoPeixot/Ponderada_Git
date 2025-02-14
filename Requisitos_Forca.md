@@ -53,7 +53,30 @@ Os requisitos funcionais especificam **o que o sistema deve fazer**, detalhando 
 
 ---
 
+## 3. Requisitos Não Funcionais
+Os requisitos não funcionais definem **como o sistema deve se comportar**, especificando restrições e qualidades do sistema, de acordo com a [ISO25010](https://blog.onedaytesting.com.br/iso-iec-25010/).
 
+### RNF01 - Desempenho
+- O sistema deve carregar a tela inicial em menos de **2 segundos**.
+- O sistema deve iniciar a partida em no máximo **1 segundo**.
+
+### RNF02 - Usabilidade
+- O sistema deve ter uma interface intuitiva e fácil de usar, com botões visíveis e bem descritos.
+- O sistema deve fornecer feedback claro ao usuário em cada ação (como letras corretas e erradas).
+
+### RNF03 - Confiabilidade
+- O sistema deve manter o estado da partida mesmo em caso de falha de conexão para o modo multiplayer.
+- O sistema deve garantir a integridade dos dados das partidas em andamento.
+
+### RNF04 - Segurança
+- No modo multiplayer, as comunicações devem ser criptografadas para proteger a privacidade dos jogadores.
+
+### RNF05 - Compatibilidade
+- O sistema deve ser compatível com os navegadores mais utilizados: Google Chrome, Mozilla Firefox, Safari e Microsoft Edge.
+- O sistema deve ser responsivo e funcionar em dispositivos móveis, tablets e desktops.
+
+### RNF06 - Escalabilidade
+- O sistema deve suportar até 2 jogadores simultâneos na mesma partida e 50 espectadores no modo multiplayer.
 
 
 ---
