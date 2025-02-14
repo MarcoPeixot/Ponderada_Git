@@ -10,3 +10,6 @@ A atividade é composta por 3 etapas.
 2 - Gestão do documento com git: Utilizar o Git para fazer o versionamento do projeto e utilizar o versionamento semântico para organizar os commits.
 
 3 - Disponibilização no GitHub: Fazer o upload do arquivo no GitHub.
+
+
+Acesse a atividade [aqui](/Requisitos_Forca.md).

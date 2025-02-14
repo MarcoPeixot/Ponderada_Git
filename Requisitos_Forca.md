@@ -135,3 +135,15 @@ O objetivo deste projeto é desenvolver um jogo de forca online. O cliente solic
 5. Sistema notifica resultado ao jogador
 
 
+## 6. Diagrama
+-------------
+
+De acordo com os requisitos mencionados, foi gerado um diagrama do fluxo de negócios do jogo da forca na IA [Phind](https://www.phind.com/).
+
+![alt text](<Untitled diagram-2025-02-14-153643.png>)
+
+O diagrama acima representa o fluxo completo do jogo, onde:
+- Os retângulos representam estados ou telas do sistema
+- As setas indicam possíveis transições entre estados
+- Os estados aninhados (como dentro de "IniciarJogo") mostram subprocessos específicos
+- O asterisco ([*]) indica o ponto inicial de cada estado
