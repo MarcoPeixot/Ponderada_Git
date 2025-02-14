@@ -147,3 +147,6 @@ O diagrama acima representa o fluxo completo do jogo, onde:
 - As setas indicam possíveis transições entre estados
 - Os estados aninhados (como dentro de "IniciarJogo") mostram subprocessos específicos
 - O asterisco ([*]) indica o ponto inicial de cada estado
+
+## Histórico de Versões
+- v1.0.0: Documentação inicial dos requisitos
